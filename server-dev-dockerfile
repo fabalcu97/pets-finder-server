@@ -1,0 +1,16 @@
+FROM node:11.9.0
+
+# Create application directory
+RUN mkdir -p /var/www/pets_tracker
+WORKDIR /var/www/pets_tracker
+
+# Install app dependencies
+COPY package.json ./
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+EXPOSE 8000
+
+CMD ["npm", "run", "dev"]

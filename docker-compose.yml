@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+  
+  server:
+      build:
+        context: .
+        dockerfile: server-dev-dockerfile
+      ports:
+          - '8000:8000'
+      volumes:
+        - '.:/var/www/pets_tracker'
+
+  # loadbalancer:
+  #     build: ./load-balancer
+  #     tty: true
+  #     links:
+  #         - main-server
+  #     ports:
+  #         - '8080:8080'
