@@ -15,4 +15,4 @@ smtp:
     secure: true
     auth:
         user: ''
-        password: ''
+        pass: ''

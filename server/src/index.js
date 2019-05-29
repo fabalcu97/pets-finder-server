@@ -1,15 +1,22 @@
 import express from "express";
 import settings from "./settings";
-import setMiddlewares from "./middlewares";
-import setRouters from './routers';
+import { connection } from "./database";
 import setFrontend from './frontend';
+import setRouters from './routers';
+import setMiddlewares from "./middlewares";
+
 const app = express();
 
-// Server setup
-setMiddlewares(app);
-setRouters(app);
-setFrontend(app);
+connection.once('open', function () {
+  console.log(`Connected to mongo database!`)
 
-app.listen(settings.port, () => {
-  console.log(`Running on http://${settings.host}:${settings.port}`);
-});
+  // Server setup
+  // setModels(connection);
+  setMiddlewares(app);
+  setRouters(app);
+  setFrontend(app);
+
+  app.listen(settings.port, () => {
+    console.log(`Running on http://${settings.host}:${settings.port}`);
+  });
+})
