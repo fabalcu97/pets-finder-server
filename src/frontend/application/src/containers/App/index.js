@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import mainTheme from "../../themes/mainTheme";
-import "./styles.css";
+import "./styles.scss";
 import { CssBaseline } from "@material-ui/core";
 
 function App() {
