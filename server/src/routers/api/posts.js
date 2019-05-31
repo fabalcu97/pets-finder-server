@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import status from 'http-status-codes';
 import { Post } from "../../models";
-import { errorParser, errorHandling } from "../errorParser";
+import { errorHandling } from "../errorParser";
 
 export const postsRouter = Router({
   caseSensitive: true,

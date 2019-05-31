@@ -11,7 +11,6 @@ connection.once('open', function () {
   console.log(`Connected to mongo database!`)
 
   // Server setup
-  // setModels(connection);
   setMiddlewares(app);
   setRouters(app);
   setFrontend(app);
