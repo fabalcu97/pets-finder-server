@@ -2,12 +2,12 @@
   "name": "pets_tracker",
   "version": "0.0.1",
   "description": "",
-  "main": "server/src/index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "gulp",
-    "start": "babel --ignore server/src/frontend/ ./server/src --out-dir ./dist/server ",
-    "dev": "nodemon --ignore server/src/frontend/ --exec babel-node server/src",
-    "debug": "babel ./server/src --out-dir ./dist/server --source-maps --watch --ignore ./server/src/frontend/"
+    "start": "babel --ignore src/frontend/ ./src --out-dir ./dist/server ",
+    "dev": "nodemon --ignore src/frontend/ --exec babel-node src",
+    "debug": "babel ./src --out-dir ./dist/server --source-maps --watch --ignore ./src/frontend/"
   },
   "author": "",
   "license": "ISC",
