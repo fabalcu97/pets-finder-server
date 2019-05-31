@@ -24,7 +24,7 @@ class NavigationFooter extends React.Component {
   render() {
     return (
       <div className="screen">
-        <Container fixed>
+        <Container fixed style={{height:"100%"}}>
           <Route path="/search" component={SearchScreen}></Route>
           <Route path="/engage" component={EngageScreen}></Route>
           <Route path="/my-pets" component={MyPetsScreen}></Route>
