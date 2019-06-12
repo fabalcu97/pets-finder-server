@@ -1,11 +1,12 @@
 import BaseSchema from "./BaseSchema";
 import { connection } from "../database";
 
-let petTypeSchema = BaseSchema({
+let specieSchema = BaseSchema({
   name: {
     type: String,
     required: true,
+    unique: true,
   },
 }, {});
 
-export let PetType = connection.model('PetType', petTypeSchema);
+export let Specie = connection.model('Specie', specieSchema);
