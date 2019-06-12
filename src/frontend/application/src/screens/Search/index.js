@@ -1,45 +1,24 @@
-import React from "react";
+import React, { Fragment, PureComponent } from "react";
 
 import "./styles.scss";
+import PostCard from "../../components/PostCard";
 
-class SearchScreen extends React.Component {
-
+class SearchScreen extends PureComponent {
   render() {
     return (
-      <div>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-        <p>Search Screen</p>
-      </div>
+      <Fragment>
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </Fragment>
     );
   }
 }
