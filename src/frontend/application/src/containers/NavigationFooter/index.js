@@ -2,11 +2,6 @@ import React from "react";
 import { Route, NavLink } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { Paw, Magnify, Heart, Settings } from "mdi-material-ui";
-// import MdPaw from 'react-ionicons/lib/MdPaw';
-// import MdSettings from 'react-ionicons/lib/MdSettings';
-// import MdSearch from 'react-ionicons/lib/MdSearch';
-// import MdHeart from 'react-ionicons/lib/MdHeart';
-
 import "./styles.scss";
 import { SearchScreen, EngageScreen, MyPetsScreen, SettingsScreen } from "../../screens";
 

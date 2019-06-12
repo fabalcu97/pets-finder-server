@@ -1,0 +1,17 @@
+import { Types } from "mongoose";
+
+import BaseSchema from "./BaseSchema";
+import { connection } from "../database";
+
+let breedSchema = BaseSchema({
+  name: {
+    type: String,
+    required: true,
+  },
+  petType: {
+    type: Types.ObjectId,
+    required: true,
+  }
+}, {});
+
+export let Breed = connection.model('Breed', breedSchema);
