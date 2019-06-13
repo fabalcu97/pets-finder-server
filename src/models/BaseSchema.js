@@ -7,7 +7,7 @@ let BaseSchema = (schema, options) => {
       type: Number,
       default: Date.now,
     },
-  }, options)
+  }, options);
 };
 
 export default BaseSchema;
