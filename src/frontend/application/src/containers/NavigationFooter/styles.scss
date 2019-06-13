@@ -1,0 +1,52 @@
+@import '../../constants.scss';
+
+.footer-navigation {
+	height: $footer-height;
+	width: 100%;
+	bottom: 0;
+	position: fixed;
+	display: flex;
+}
+
+.navigation-button {
+	width: 100%;
+	border: 1px solid brown;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	.selected {
+		svg {
+			fill: brown;
+			height: 90%;
+			width: 90%;
+		}
+	}
+	a {
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		height: 75%;
+		width: 75%;
+		svg {
+			height: 75%;
+			width: 75%;
+			fill: black;
+		}
+	}
+}
+
+.screen {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.MuiContainer-root {
+	// position: fixed;
+	// padding: 10px 10px 0 10px;
+	max-height: calc(100% - #{$footer-height});
+	// width: 100%;
+	overflow: auto;
+}

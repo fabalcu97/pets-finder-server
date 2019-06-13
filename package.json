@@ -23,6 +23,7 @@
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1",
     "nodemailer": "^6.1.1",
+    "react-swipeable-cards": "^1.0.6",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

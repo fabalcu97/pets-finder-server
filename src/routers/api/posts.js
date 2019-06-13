@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import status from 'http-status-codes';
+
 import { Post } from "../../models";
 import { errorHandling } from "../errorParser";
 
@@ -16,7 +17,7 @@ postsRouter.post('/', (req, res, next) => {
 });
 
 postsRouter.get('/', (req, res, next) => {
-  Post.find({}).select('-__v').then(posts => {
+  Post.find(req.query).select('-__v').then(posts => {
     res.status(status.OK).send(posts);
     next();
   }).catch(error => errorHandling(error, res, next));
