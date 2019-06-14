@@ -19,6 +19,9 @@ export default {
     fontSize: "125px",
   },
   buttonsGrid: {
-    marginTop: "10vh",
+    marginTop: "8vh",
+  },
+  button: {
+    margin: '1vh',
   }
 }

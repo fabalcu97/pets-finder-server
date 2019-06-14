@@ -52,23 +52,19 @@ class LoginScreen extends React.Component {
           </FormControl>
           <Grid
             container
-            justify="space-between"
-            alignItems="center"
             style={styles.buttonsGrid}
           >
             <Button
-              variant="contained"
-              color="secondary"
-              style={styles.button}>
-              Register
-              </Button>
-            <Button
+              fullWidth
               type="submit"
               variant="contained"
               color="primary"
-              style={styles.button}>
-              Login
-              </Button>
+              style={styles.button}> Login </Button>
+            <Button
+              fullWidth
+              variant="contained"
+              color="secondary"
+              style={styles.button}> Register </Button>
           </Grid>
         </form>
       </Container>
