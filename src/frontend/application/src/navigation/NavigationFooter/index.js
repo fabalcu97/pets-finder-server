@@ -2,6 +2,7 @@ import React from "react";
 import { Route, NavLink } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { Paw, Magnify, Heart, Settings } from "mdi-material-ui";
+
 import "./styles.scss";
 import { SearchScreen, EngageScreen, MyPetsScreen, SettingsScreen } from "../../screens";
 

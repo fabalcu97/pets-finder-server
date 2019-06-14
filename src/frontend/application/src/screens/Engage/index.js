@@ -17,7 +17,12 @@ class EngageScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pets: [],
+      pets: [{
+        image: '',
+        name: 'Firulais',
+        age: 12,
+        sex: 'm',
+      }],
     };
   }
   render() {
