@@ -35,3 +35,16 @@ postsRouter.get('/:id/', (req, res, next) => {
     next();
   }).catch(error => errorHandling(error, res, next));
 })
+
+postsRouter.get('/type/:type/', (req, res, next) => {
+  let type = req.params.type;
+  Post.findOne({ type: type }).select('-__v').then(post => {
+    if (!post) {
+      res.status(status.NOT_FOUND).send(post);
+      next();
+      return;
+    }
+    res.status(status.OK).send(post);
+    next();
+  }).catch(error => errorHandling(error, res, next));
+})

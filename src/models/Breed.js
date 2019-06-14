@@ -8,9 +8,10 @@ let breedSchema = BaseSchema({
     type: String,
     required: true,
   },
-  petType: {
+  specie: {
     type: Types.ObjectId,
     required: true,
+    ref: 'Specie',
   }
 }, {});
 

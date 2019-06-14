@@ -4,3 +4,4 @@ export const POSTS = 'posts';
 export const PETS = 'pets';
 export const SPECIE = 'specie';
 export const ENGAGE = 'engage';
+export const BREED = 'breed';

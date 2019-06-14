@@ -7,6 +7,10 @@ let postSchema = BaseSchema({
     required: true,
   },
   image: String,
+  type: {
+    type: Number,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
