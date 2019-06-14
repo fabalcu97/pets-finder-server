@@ -1,56 +1,90 @@
 import React from "react";
-import { Route, NavLink } from "react-router-dom";
-import { Container } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+import { AppBar, Toolbar, withStyles, IconButton } from "@material-ui/core";
 import { Paw, Magnify, Heart, Settings } from "mdi-material-ui";
 import "./styles.scss";
-import { SearchScreen, EngageScreen, MyPetsScreen, SettingsScreen } from "../../screens";
 
-class NavigationButton extends React.Component {
-  render() {
-    return (
-      <div className='navigation-button'>
-        {this.props.children}
-      </div>
-    );
+const style = {
+  appBar: {
+    top: "auto",
+    bottom: 0
+  },
+  toolbar: {
+    justifyContent: "space-around"
+  },
+  grow: {
+    flexGrow: 1
+  },
+  fabButton: {
+    position: "absolute",
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: "0 auto"
+  },
+  selected: {
+    width: "40px",
+    height: "auto",
+    "& svg": {
+      width: "100%",
+      height: "100%"
+    }
+  },
+  icon: {
+    width: "40px",
+    height: "100%",
+    color: "white"
+  },
+  button: {
+    "&: hover": { backgroundColor: "inherit" }
   }
 };
 
-class NavigationFooter extends React.Component {
-  render() {
-    return (
-      <div className="screen">
-        <Container fixed style={{height:"100%"}}>
-          <Route path="/search" component={SearchScreen}></Route>
-          <Route path="/engage" component={EngageScreen}></Route>
-          <Route path="/my-pets" component={MyPetsScreen}></Route>
-          <Route path="/settings" component={SettingsScreen}></Route>
+const NavigationFooter = props => {
+  const { classes } = props;
+  return (
+    <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <Toolbar className={classes.toolbar}>
+        <IconButton color="inherit" aria-label="Search">
+          <NavLink
+            className={classes.icon}
+            activeClassName="selected"
+            to="/search"
+          >
+            <Magnify />
+          </NavLink>
+        </IconButton>
+        <IconButton color="inherit" aria-label="Engage">
+          <NavLink
+            className={classes.icon}
+            activeClassName="selected"
+            to="/engage"
+          >
+            <Heart />
+          </NavLink>
+        </IconButton>
+        <IconButton color="inherit" aria-label="My pets">
+          <NavLink
+            className={classes.icon}
+            activeClassName="selected"
+            to="/my-pets"
+          >
+            <Paw />
+          </NavLink>
+        </IconButton>
+        <IconButton color="inherit" aria-label="Settings">
+          <NavLink
+            className={classes.icon}
+            activeClassName="selected"
+            to="/settings"
+          >
+            <Settings />
+          </NavLink>
+        </IconButton>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-        </Container>
-        <div className="footer-navigation">
-          <NavigationButton>
-            <NavLink activeClassName="selected" to="/search">
-              <Magnify />
-            </NavLink>
-          </NavigationButton>
-          <NavigationButton>
-            <NavLink activeClassName="selected" to="/engage">
-              <Heart />
-            </NavLink>
-          </NavigationButton>
-          <NavigationButton>
-            <NavLink activeClassName="selected" to="/my-pets">
-              <Paw />
-            </NavLink>
-          </NavigationButton>
-          <NavigationButton>
-            <NavLink activeClassName="selected" to="/settings">
-              <Settings />
-            </NavLink>
-          </NavigationButton>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default NavigationFooter;
+export default withStyles(style)(NavigationFooter);
