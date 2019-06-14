@@ -2,8 +2,8 @@ import { Router } from 'express';
 import status from 'http-status-codes';
 
 import { User } from "../../models";
-import { getSettionId } from "../../models/Session";
-import { errorHandling } from "../errorParser";
+import { getAuthToken } from "../../models/AuthToken";
+import { errorHandling } from "../../services";
 
 export const userRouter = Router({
   caseSensitive: true,
@@ -17,17 +17,15 @@ userRouter.post('/login', (req, res, next) => {
       next();
       return;
     }
-    user.comparePassword(password, (err, granted) => {
+    user.comparePassword(password, async (err, granted) => {
       if (err) {
         errorHandling(err);
         next();
         return;
       }
       if (granted) {
-        // TODO: Generate session ID and send it
-        async let sessionId = getsessionId()
-        res.cookie('sessionId', sessionId);
-        res.status(status.OK).send();
+        let authToken = await getAuthToken(user._id);
+        res.status(status.OK).send({authToken});
       } else {
         res.status(status.UNAUTHORIZED).send({ error: "Wrong password." });
       }
@@ -38,10 +36,9 @@ userRouter.post('/login', (req, res, next) => {
 
 userRouter.post('/register', (req, res, next) => {
   let data = req.body;
-  User.create(data).then(user => {
-    // TODO: Generate session ID and send it
-    res.cookie('sessionId', sessionId);
-    res.status(status.OK).send();
+  User.create(data).then(async user => {
+    let authToken = await getAuthToken(user._id);
+    res.status(status.OK).send({authToken});
     next();
   }).catch(error => errorHandling(error, res, next));
 })

@@ -3,6 +3,7 @@ import { Pet } from "./Pet";
 import { Breed } from "./Breed";
 import { Specie } from "./Specie";
 import { User } from "./User";
+import { AuthToken } from "./AuthToken";
 
 export {
   Post,
@@ -10,4 +11,5 @@ export {
   Breed,
   Specie,
   User,
+  AuthToken,
 };

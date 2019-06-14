@@ -43,7 +43,7 @@ userSchema.pre('save', function (next) {
     hash(this.password, salt, (err, hash) => {
       if (err) return next(err);
       this.password = hash;
-      next()
+      next();
     });
   });
 });

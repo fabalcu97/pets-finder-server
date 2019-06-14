@@ -2,7 +2,7 @@ import { Router } from 'express';
 import status from 'http-status-codes';
 
 import { Post } from "../../models";
-import { errorHandling } from "../errorParser";
+import { errorHandling } from "../../services";
 
 export const postsRouter = Router({
   caseSensitive: true,
@@ -17,6 +17,7 @@ postsRouter.post('/', (req, res, next) => {
 });
 
 postsRouter.get('/', (req, res, next) => {
+  console.log(req.user)
   Post.find(req.query).select('-__v').then(posts => {
     res.status(status.OK).send(posts);
     next();
@@ -36,6 +37,7 @@ postsRouter.get('/:id/', (req, res, next) => {
   }).catch(error => errorHandling(error, res, next));
 })
 
+// TODO: Review the filtering
 postsRouter.get('/type/:type/', (req, res, next) => {
   let type = req.params.type;
   Post.findOne({ type: type }).select('-__v').then(post => {

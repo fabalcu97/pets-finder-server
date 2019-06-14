@@ -4,6 +4,7 @@ import cors from "cors";
 import { json, urlencoded } from "express";
 
 import settings from '../settings';
+import { setUser } from "./session";
 
 /**
  * Method that allows setup all the middleware required by the server.
@@ -15,6 +16,7 @@ function SetMiddleware(expressApp, dbConnection) {
   expressApp.use(helmet());
   expressApp.use(cors());
   expressApp.use(morgan(settings.dev ? 'dev' : 'combined'));
+  expressApp.use(setUser);
 }
 
 export default SetMiddleware;
