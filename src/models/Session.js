@@ -3,19 +3,19 @@ import { Types } from "mongoose";
 import BaseSchema from "./BaseSchema";
 import { connection } from "../database";
 
-let breedSchema = BaseSchema({
-  name: {
+let sessionIdSchema = BaseSchema({
+  token: {
     type: String,
     required: true,
     index: {
       unique: true,
-    }
+    },
   },
-  specie: {
+  user: {
     type: Types.ObjectId,
     required: true,
-    ref: 'Specie',
-  }
+    ref: 'User',
+  },
 }, {});
 
-export let Breed = connection.model('Breed', breedSchema);
+export let SessionId = connection.model('SessionId', sessionIdSchema);
