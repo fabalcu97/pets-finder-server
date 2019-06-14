@@ -1,8 +1,9 @@
-import { BASE_URL, MAIL, POSTS, ENGAGE, SPECIE, USER } from '../constants';
+import { BASE_URL, MAIL, POSTS, ENGAGE, SPECIE, BREED, USER } from '../constants';
 import { mailRouter } from './api/mail';
 import { postsRouter } from "./api/posts";
 import { engageRouter } from "./api/engage";
 import { specieRouter } from "./api/specie";
+import { breedRouter } from "./api/breed";
 import { userRouter } from "./api/user";
 
 /**
@@ -16,6 +17,7 @@ function SetRouters(expressApp, databaseConnection) {
   expressApp.use(`${BASE_URL}/${POSTS}`, postsRouter);
   expressApp.use(`${BASE_URL}/${ENGAGE}`, engageRouter);
   expressApp.use(`${BASE_URL}/${SPECIE}`, specieRouter);
+  expressApp.use(`${BASE_URL}/${BREED}`, breedRouter);
   expressApp.use(`${BASE_URL}/${USER}`, userRouter);
 };
 

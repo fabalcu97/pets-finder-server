@@ -27,8 +27,10 @@ export const engageRouter = Router({
 
 
 engageRouter.get('/', (req, res, next) => {
-  Pet.find({}).select('-__v').then(pets => {
+  let breed = req.query.breed;
+  Pet.find({breed}).select('-__v').then(pets => {
     res.status(status.OK).send(pets);
     next();
   }).catch(error => errorHandling(error, res, next));
 })
+
