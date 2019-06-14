@@ -1,8 +1,9 @@
 import React from "react";
 import { Pets } from "@material-ui/icons";
 
-import { TextField, Container, FormControl, withTheme, Button, Grid, Avatar } from "../../components";
 import styles from "./styles.js";
+import { TextField, Container, FormControl, withTheme, Button, Grid, Avatar } from "../../components";
+import { connection } from '../../api';
 
 class LoginScreen extends React.Component {
 
@@ -10,8 +11,10 @@ class LoginScreen extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      form: {
+        email: '',
+        password: '',
+      },
     };
 
     this.login = this.login.bind(this);
@@ -21,6 +24,11 @@ class LoginScreen extends React.Component {
   login($ev) {
     $ev.preventDefault();
     console.log(this.state);
+    connection.post('/user/login', this.state.form).then(token => {
+      console.log(token);
+    }).catch(err => {
+      console.error(err);
+    });
   }
 
   render() {
@@ -37,7 +45,7 @@ class LoginScreen extends React.Component {
               label="Email"
               type="email"
               value={this.state.email}
-              onChange={v => this.setState({ ...this.state, email: v.target.value })}
+              onChange={v => this.setState({ ...this.state, form: { email: v.target.value } })}
             />
           </FormControl>
           <FormControl fullWidth>
@@ -47,7 +55,7 @@ class LoginScreen extends React.Component {
               label="Password"
               type="password"
               value={this.state.password}
-              onChange={v => this.setState({ ...this.state, password: v.target.value })}
+              onChange={v => this.setState({ ...this.state, form: { password: v.target.value } })}
             />
           </FormControl>
           <Grid
