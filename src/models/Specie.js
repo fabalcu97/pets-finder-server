@@ -5,7 +5,9 @@ let specieSchema = BaseSchema({
   name: {
     type: String,
     required: true,
-    unique: true,
+    index: {
+      unique: true,
+    },
   },
 }, {});
 

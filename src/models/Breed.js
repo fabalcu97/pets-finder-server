@@ -7,6 +7,9 @@ let breedSchema = BaseSchema({
   name: {
     type: String,
     required: true,
+    index: {
+      unique: true,
+    }
   },
   specie: {
     type: Types.ObjectId,

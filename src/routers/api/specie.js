@@ -2,7 +2,7 @@ import { Router } from 'express';
 import status from 'http-status-codes';
 
 import { Specie } from "../../models";
-import { errorHandling } from "../errorParser";
+import { errorHandling } from "../../services";
 
 export const specieRouter = Router({
   caseSensitive: true,

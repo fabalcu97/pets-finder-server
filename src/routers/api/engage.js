@@ -19,7 +19,7 @@ import { Router } from 'express';
 import status from 'http-status-codes';
 
 import { Pet } from "../../models";
-import { errorHandling } from "../errorParser";
+import { errorHandling } from "../../services";
 
 export const engageRouter = Router({
   caseSensitive: true,
