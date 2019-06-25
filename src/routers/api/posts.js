@@ -17,8 +17,9 @@ postsRouter.post('/', (req, res, next) => {
 });
 
 postsRouter.get('/', (req, res, next) => {
-  console.log(req.user)
-  Post.find(req.query).select('-__v').then(posts => {
+  const limit = 10;
+  const page = req.query.page || 0;
+  Post.find().skip(page * limit).limit(limit).select('-__v').exec().then(posts => {
     res.status(status.OK).send(posts);
     next();
   }).catch(error => errorHandling(error, res, next));

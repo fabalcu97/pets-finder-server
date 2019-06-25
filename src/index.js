@@ -1,7 +1,9 @@
+import '@babel/polyfill';
+
 import express from "express";
 import settings from "./settings";
 import { connection } from "./database";
-import setFrontend from './frontend';
+// import setFrontend from './frontend';
 import setRouters from './routers';
 import setMiddlewares from "./middlewares";
 
@@ -13,7 +15,7 @@ connection.once('open', function () {
   // Server setup
   setMiddlewares(app);
   setRouters(app);
-  setFrontend(app);
+  // setFrontend(app);
 
   app.listen(settings.port, () => {
     console.log(`Running on http://${settings.host}:${settings.port}`);

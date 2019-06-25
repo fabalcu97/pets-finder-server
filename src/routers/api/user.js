@@ -25,7 +25,7 @@ userRouter.post('/login', (req, res, next) => {
       }
       if (granted) {
         let authToken = await getAuthToken(user._id);
-        res.status(status.OK).send({authToken});
+        res.status(status.OK).send({authToken: authToken.token});
       } else {
         res.status(status.UNAUTHORIZED).send({ error: "Wrong password." });
       }
@@ -38,7 +38,7 @@ userRouter.post('/register', (req, res, next) => {
   let data = req.body;
   User.create(data).then(async user => {
     let authToken = await getAuthToken(user._id);
-    res.status(status.OK).send({authToken});
+    res.status(status.OK).send({authToken: authToken.token});
     next();
   }).catch(error => errorHandling(error, res, next));
 })
