@@ -1,7 +1,7 @@
 secretKey: "a30422ec-d90b-44a0-bf48-287d15b4faeb"
 dev: true
 host: "0.0.0.0"
-port: 8080
+port: 80
 projectName: "pets_tracker"
 database:
     name: "pets_tarcker_mvp"
