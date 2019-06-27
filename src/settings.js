@@ -7,7 +7,7 @@ export const settings = safeLoad(readFileSync(settingsPath, 'utf-8'));
 
 settings.host = settings.host ? settings.host : '0.0.0.0';
 if (process.env.$PORT) {
-  settings.port = process.env.$PORT
+  settings.port = process.env.PORT
 } else if (settings.port) {
   settings.port = settings.port
 } else {
