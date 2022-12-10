@@ -15,7 +15,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "gulp": "^4.0.2",
     "gulp-run": "^1.7.1",
     "helmet": "^3.16.0",
